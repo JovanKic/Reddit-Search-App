@@ -1,2 +1,3 @@
 # Reddit-Search-App
 Just a practice project
+Note: has to be opened on local host coz of security...
