@@ -39,7 +39,7 @@ searchForm.addEventListener('submit', (e) => {
                       <img class="card-img-top" src="${image}" alt="Card image cap">
                       <div class="card-body">
                         <h5 class="card-title">${post.title}</h5>
-                        <p class="card-text">${truncateText(post.selftext, 75)}</p>
+                        <p class="card-text">${truncateText(post.selftext, 100)}</p>
                         <a href="${post.url}" class="btn btn-primary">Read More</a>
                         <hr>
                         <span class="badge badge-secondary mb-2">Subreddit: ${post.subreddit}</span>
@@ -77,6 +77,9 @@ function showMessage(message, className) {
 }
 //Truncate text
 function truncateText(text, limit) {
-    text = text.split(' ').slice(0, limit);
-    return text;
+    const shortened = text.indexOf(' ', limit);
+    if(shortened === -1) {
+        return text;
+    }
+    return text.substring(0, shortened);
 }
